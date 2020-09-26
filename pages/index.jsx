@@ -11,9 +11,13 @@ function Index() {
             <p>Created by Desmond Charles</p>
           </div>
 
-          <button className="ui inverted icon right labeled button">
+          <a
+            href="https://github.com/tall-dark-techguy/next-starter-app"
+            className="ui inverted icon right labeled button"
+            target="_blank"
+          >
             View on Github <i className="github icon"></i>
-          </button>
+          </a>
         </section>
       </Layout>
     </>
