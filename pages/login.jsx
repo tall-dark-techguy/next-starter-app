@@ -92,7 +92,7 @@ function Login() {
 
             <button
               className={`ui primary icon right labeled fluid large button ${
-                loading.status && "loading disable"
+                loading.status && "loading disabled"
               }`}
             >
               Login <i className="sign in icon"></i>
