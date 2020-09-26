@@ -61,7 +61,7 @@ function Layout({ children }) {
                     </button>
                   ) : (
                     <button
-                      onClick={() => setVisible(true)}
+                      onClick={() => setVisible(false)}
                       className="ui basic red button"
                     >
                       <i className="times icon"></i> CLOSE
