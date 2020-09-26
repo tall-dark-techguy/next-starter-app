@@ -12,7 +12,12 @@ function Layout({ children, title = "Next Starter App By Desse" }) {
     <>
       <Head title={title} />
 
-      <Sidebar.Pushable style={{ transform: "none", height: "100vh" }}>
+      <Sidebar.Pushable
+        style={{
+          transform: "none",
+          height: "100vh",
+        }}
+      >
         <Sidebar
           as={Menu}
           // animation: slide out, slide along, push
@@ -52,7 +57,7 @@ function Layout({ children, title = "Next Starter App By Desse" }) {
         </Sidebar>
 
         {/* Site and page content goes here :=() */}
-        <Sidebar.Pusher style={{ height: "auto" }}>
+        <Sidebar.Pusher>
           <>
             <Nav>
               {!visible ? (
