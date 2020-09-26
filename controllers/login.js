@@ -16,7 +16,10 @@ async function login(req, res, next) {
       return res.status(404).json("Password does not match");
     }
 
-    const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
+    const token = jwt.sign(
+      { _id: user._id, email: user.email },
+      process.env.JWT_SECRET
+    );
     res.json(token);
   } catch (error) {
     res.status(400).json("Server error");

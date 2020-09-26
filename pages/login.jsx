@@ -38,7 +38,11 @@ function Login() {
       login(response.data);
       window.location.href = "/?loggedIn=true";
     } catch (error) {
-      setLoading({ error: error.message });
+      setLoading({
+        error:
+          "Incorrect email/ password. Please check your login details and try again.",
+      });
+      router.push("/login");
     }
   };
 
@@ -63,15 +67,15 @@ function Login() {
             error={loading.error}
           >
             <Message
-              success
-              header="Sign up successful!"
-              content={`Please login with your email: ${router.query.new}`}
-            />
-
-            <Message
               error
               header="We couldn't submit your form"
               content={loading.error}
+            />
+
+            <Message
+              success
+              header="Sign up successful!"
+              content={`Please login with your email: ${router.query.new}`}
             />
 
             <Form.Input
