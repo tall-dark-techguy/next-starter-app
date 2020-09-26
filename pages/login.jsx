@@ -66,11 +66,7 @@ function Login() {
             success={router.query.new}
             error={loading.error}
           >
-            <Message
-              error
-              header="We couldn't submit your form"
-              content={loading.error}
-            />
+            <Message error header="Login failed!" content={loading.error} />
 
             <Message
               success
