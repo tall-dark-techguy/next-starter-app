@@ -2,7 +2,7 @@ import Link from "next/link";
 import { logout, isAuthenticated } from "../utils/authService";
 import { useState } from "react";
 
-function Nav() {
+function Nav({ children }) {
   const [loading, setLoading] = useState(false);
 
   const handleLogout = () => {
@@ -14,7 +14,9 @@ function Nav() {
   return (
     <>
       <div className="ui secondary stackable menu">
-        <div className="ui container">
+        <div className="ui fluid container">
+          <div className="item">{children}</div>
+
           <Link href="/">
             <a className="item">
               <h2>NEXT STARTER APP</h2>
