@@ -16,16 +16,16 @@ function SideBar({ visible, setVisible, isAuthenticated }) {
       visible={visible}
       width="thin"
     >
+      <Link href="/">
+        <a className="item" onClick={() => setVisible(false)}>
+          <h1 style={{ color: "orange" }}>
+            <i className="react icon"></i>
+          </h1>
+        </a>
+      </Link>
+
       {!isAuthenticated() ? (
         <>
-          <Link href="/">
-            <a className="item" onClick={() => setVisible(false)}>
-              <h1 style={{ color: "orange" }}>
-                <i className="react icon"></i>
-              </h1>
-            </a>
-          </Link>
-
           <Link href="/">
             <a className="item" onClick={() => setVisible(false)}>
               <i className="home icon"></i>

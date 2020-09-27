@@ -4,7 +4,6 @@ import { signUp } from "../../controllers/signup";
 
 connectDB();
 
-// @POST '/api/signup'
-handler.post(signUp);
+handler.post("/api/signup", signUp);
 
 export default handler;

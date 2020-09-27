@@ -1,16 +1,8 @@
 import Link from "next/link";
 import { logout, isAuthenticated } from "../utils/authService";
-import { useState } from "react";
+import { Icon } from "semantic-ui-react";
 
 function Nav({ children }) {
-  const [loading, setLoading] = useState(false);
-
-  const handleLogout = () => {
-    setLoading(true);
-    logout();
-    window.location.href = "/login?logged_out=true";
-  };
-
   return (
     <>
       <div className="ui secondary stackable nav menu">
@@ -19,13 +11,13 @@ function Nav({ children }) {
             {children}
             <Link href="/">
               <a className="ui orange icon labeled button ml-10">
-                Cart (0) <i className="cart icon"></i>
+                Cart (0) <Icon name="cart" />
               </a>
             </Link>
 
-            <Link href="/">
-              <a className="ui teal icon button ml-10">
-                <i className="phone icon"></i>
+            <Link href="https://wa.me/2347010916647?text=Hello%20Desse%20,%20I'm%20">
+              <a className="ui green icon button ml-10">
+                <Icon name="whatsapp" /> Chat
               </a>
             </Link>
           </div>
@@ -40,7 +32,7 @@ function Nav({ children }) {
             <div className="item">
               <div className="ui icon input">
                 <input type="text" placeholder="Search..." />
-                <i className="search link icon"></i>
+                <Icon name="search" />
               </div>
             </div>
 
@@ -58,10 +50,8 @@ function Nav({ children }) {
 
                 <div className="item">
                   <button
-                    onClick={handleLogout}
-                    className={`ui basic red button ${
-                      loading ? "loading disabled" : ""
-                    }`}
+                    onClick={() => logout()}
+                    className={`ui basic red button`}
                   >
                     Logout
                   </button>
