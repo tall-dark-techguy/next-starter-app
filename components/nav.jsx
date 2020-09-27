@@ -13,9 +13,22 @@ function Nav({ children }) {
 
   return (
     <>
-      <div className="ui secondary stackable menu">
+      <div className="ui secondary stackable nav menu">
         <div className="ui fluid container">
-          <div className="item">{children}</div>
+          <div className="item">
+            {children}
+            <Link href="/">
+              <a className="ui orange icon labeled button ml-10">
+                Cart (0) <i className="cart icon"></i>
+              </a>
+            </Link>
+
+            <Link href="/">
+              <a className="ui teal icon button ml-10">
+                <i className="phone icon"></i>
+              </a>
+            </Link>
+          </div>
 
           <Link href="/">
             <a className="item">
@@ -23,7 +36,7 @@ function Nav({ children }) {
             </a>
           </Link>
 
-          <div className="right menu">
+          <div className="right menu hide mobile">
             <div className="item">
               <div className="ui icon input">
                 <input type="text" placeholder="Search..." />
@@ -31,11 +44,9 @@ function Nav({ children }) {
               </div>
             </div>
 
-            <div className="item">
-              <Link href="/">
-                <a className="ui basic button">Home</a>
-              </Link>
-            </div>
+            <Link href="/">
+              <a className="item">Home</a>
+            </Link>
 
             {isAuthenticated() ? (
               <>

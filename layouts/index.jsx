@@ -4,6 +4,7 @@ import Nav from "../components/nav";
 import { Menu, Sidebar } from "semantic-ui-react";
 import { useState } from "react";
 import { isAuthenticated } from "../utils/authService";
+import FixedBottomFooter from "../components/fixedBottomFooter";
 
 function Layout({ children, title = "Next Starter App By Desse" }) {
   const [visible, setVisible] = useState(false);
@@ -23,6 +24,7 @@ function Layout({ children, title = "Next Starter App By Desse" }) {
           // animation: slide out, slide along, push
           direction="left"
           animation="push"
+          className="black"
           icon="labeled"
           inverted
           onHide={() => setVisible(false)}
@@ -33,26 +35,30 @@ function Layout({ children, title = "Next Starter App By Desse" }) {
           {!isAuthenticated() ? (
             <>
               <div className="item">
-                <i className="sign in icon"></i>
-                <Link href="/login">
-                  <a className="">Login</a>
-                </Link>
+                <h1 style={{ color: "orange" }}>
+                  <i className="react icon"></i>
+                </h1>
               </div>
 
-              <div className="item">
-                <i className="user icon"></i>
-                <Link href="/signup">
-                  <a>Sign up</a>
-                </Link>
-              </div>
+              <Link href="/login">
+                <a className="item">
+                  <i className="sign in icon"></i>
+                  <p>Login</p>
+                </a>
+              </Link>
+
+              <Link href="/signup">
+                <a className="item">
+                  <i className="user icon"></i> <p>Sign up</p>
+                </a>
+              </Link>
             </>
           ) : (
-            <div className="item">
-              <i className="user icon"></i>
-              <Link href="/user">
-                <a className="">User</a>
-              </Link>
-            </div>
+            <Link href="/user">
+              <a className="item">
+                <i className="user icon"></i> <p>User</p>
+              </a>
+            </Link>
           )}
         </Sidebar>
 
@@ -80,6 +86,8 @@ function Layout({ children, title = "Next Starter App By Desse" }) {
           </>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
+
+      <FixedBottomFooter isAuthenticated={isAuthenticated} />
     </>
   );
 }

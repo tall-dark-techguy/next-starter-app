@@ -1,9 +1,9 @@
-import { getCurrentUser, getAuthTokenName } from "./authService";
+import { getCurrentUser } from "./authService";
 
 function protectedPage(ctx, props) {
   const { req, res } = ctx;
   const redirectUrl = "/login?session=null";
-  const tokenName = getAuthTokenName();
+  const tokenName = process.env.AUTH_TOKEN_NAME;
 
   /* handle server side */
   if (typeof window === "undefined") {

@@ -1,20 +1,44 @@
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   * {
     scrollbar-width: thin !important;
-    scrollbar-color: orangered white !important;
+    scrollbar-color: orangered #999 !important;
   }
 
   *::-webkit-scrollbar {
     width: 1px !important;
   }
   *::-webkit-scrollbar-track {
-    background: white !important;
+    background: #999 !important;
   }
   *::-webkit-scrollbar-thumb {
     background-color: orangered !important;
     border-radius: 0 !important;
     border: 0 !important;
   }
+
+  .hide.mobile {
+    display: none !important;
+  }
+  .show.mobile {
+    display: inline !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide.desktop {
+    display: none !important;
+  }
+  .show.desktop {
+    display: inline !important;
+  }
+}
+
+.nav.menu {
+  margin-bottom: 0 !important;
+}
+
+.ml-10 {
+  margin-left: 10px !important;
 }
 
 .login {
@@ -25,4 +49,15 @@
 
 .form-extras {
   margin-top: 3em;
+}
+
+/* Footer */
+.footer-fixed {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: fit-content;
+  background: white !important;
+  z-index: 99;
 }

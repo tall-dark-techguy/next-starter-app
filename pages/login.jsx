@@ -101,7 +101,7 @@ function Login() {
 
           <div className="form-extras">
             <Link href="/signup">
-              <a className="ui button">Don't have account?</a>
+              <a className="ui button">Sign up?</a>
             </Link>
 
             <Link href="">

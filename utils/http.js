@@ -1,6 +1,5 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-import { getAuthTokenName } from "./authService";
 
 axios.interceptors.response.use(null, (error) => {
   const expectedError =
@@ -15,7 +14,9 @@ axios.interceptors.response.use(null, (error) => {
   return Promise.reject(error);
 });
 
-axios.defaults.headers.common["x-auth-token"] = Cookies.get(getAuthTokenName());
+axios.defaults.headers.common["x-auth-token"] = Cookies.get(
+  process.env.AUTH_TOKEN_NAME
+);
 
 module.exports = {
   get: axios.get,

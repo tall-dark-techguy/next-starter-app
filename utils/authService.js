@@ -2,14 +2,16 @@ import jwtDecode from "jwt-decode";
 import Cookie from "js-cookie";
 
 export function login(token) {
-  return Cookie.set(getAuthTokenName(), token);
+  return Cookie.set(process.env.AUTH_TOKEN_NAME, token);
 }
 
 export function logout() {
-  return Cookie.remove(getAuthTokenName());
+  return Cookie.remove(process.env.AUTH_TOKEN_NAME);
 }
 
-export function getCurrentUser(token = Cookie.get(getAuthTokenName())) {
+export function getCurrentUser(
+  token = Cookie.get(process.env.AUTH_TOKEN_NAME)
+) {
   try {
     return jwtDecode(token);
   } catch (error) {
@@ -25,5 +27,5 @@ export function isAuthenticated() {
 }
 
 export function getAuthTokenName() {
-  return "_xat";
+  return process.env.AUTH_TOKEN_NAME;
 }
